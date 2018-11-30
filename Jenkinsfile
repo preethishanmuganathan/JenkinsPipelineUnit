@@ -10,7 +10,7 @@ stage ('Build') {
         if (deployBranches.contains(branch)) {
             phase = "deploy"
         }
-        echo "Running mvn $phase on branch $branch"
+        echo "Running jenkins mvn $phase on branch $branch"
         sh 'mkdir -p ~/.gnupg'
         withCredentials([
             file(credentialsId: 'gpg-pubring', variable: 'GPG_PUB_RING'),
